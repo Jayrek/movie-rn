@@ -16,7 +16,6 @@ export const fetchMovies = async ({query}: {query: string }) => {
         method: 'GET',
         headers: TMBD_CONFIG.headers,
     });
-    console.log(`response: ${response.body}`);
 
     if(!response.ok){
         // @ts-ignore
@@ -28,3 +27,22 @@ export const fetchMovies = async ({query}: {query: string }) => {
     return data.results;
 
 } 
+
+export const fetchMovieDetails = async ({movieId} : {movieId: string})=> {
+   try{
+    const endpoint = `${TMBD_CONFIG.BASE_URL}/movie/${movieId}?api_key=${TMBD_CONFIG.ACCESS_TOKEN}`;
+    const response = await fetch(endpoint, {
+        method: 'GET',
+        headers: TMBD_CONFIG.headers
+    });
+    console.log(`response: ${response.body}`);
+    if(!response.ok){
+        throw new Error('Failed to fetch movie details');}
+
+        const data = await response.json();
+        return data
+   } catch(error){
+    console.error('Error fetching movie details:', error);
+    throw error;
+   }
+}
