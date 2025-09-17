@@ -1,9 +1,9 @@
 import { icons } from "@/constants/icons";
 import { fetchMovieDetails } from "@/services/api";
 import useFetch from "@/services/useFetch";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { formatVoteCount } from "../utils/formatter";
 
 interface MovieInfoProps {
@@ -21,13 +21,17 @@ const MovieInfo = ({ label, value }: MovieInfoProps) => (
 const MovieGenres = ({ genres }: { genres: { name: string }[] }) => (
   <View>
     <Text className="light-300 color-gray-500 mb-2 mt-5 text-sm">Genres</Text>
-    <View className="flex-row gap-x-2 flex-wrap  gap-2">
-      {genres?.map((genre: { name: string }) => (
-        <View key={genre.name} className="rounded-lg px-3 py-1 bg-gray-200">
-          <Text className="text-medium">{genre.name}</Text>
-        </View>
-      ))}
-    </View>
+    {genres && genres.length > 0 ? (
+      <View className="flex-row gap-x-2 flex-wrap  gap-2">
+        {genres?.map((genre: { name: string }) => (
+          <View key={genre.name} className="rounded-lg px-3 py-1 bg-gray-200">
+            <Text className="text-medium">{genre.name}</Text>
+          </View>
+        ))}
+      </View>
+    ) : (
+      <Text className="text-medium">No genres found</Text>
+    )}
   </View>
 );
 
@@ -104,6 +108,18 @@ const MovieDetails = () => {
           />
         </View>
       </ScrollView>
+      <TouchableOpacity
+        className="absolute bottom-8 left-0 right-0 mx-5 rounded-lg py-3.5 flex flex-row items-center justify-center z-50"
+        style={{ backgroundColor: "#AB8BFF" }}
+        onPress={() => router.back()}
+      >
+        <Image
+          source={icons.arrow}
+          style={{ tintColor: "white" }}
+          className="w-5 h-5 mr-2 rotate-180"
+        />
+        <Text className="font-semibold text-base text-white">Go back</Text>
+      </TouchableOpacity>
     </View>
   );
 };
