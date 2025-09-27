@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "510983584539",
+    "project_id": "movie-eboy",
+    "storage_bucket": "movie-eboy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510983584539:android:df57019068ef63b3c3b1be",
+        "android_client_info": {
+          "package_name": "com.jayrek.movieeboy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510983584539-7pt0emkn6ltoi2oi9ds8hu5cq1p54es4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jayrek.movieeboy",
+            "certificate_hash": "4c244d1104878d38f0f3d8afc9cc904a84a411c4"
+          }
+        },
+        {
+          "client_id": "510983584539-lsuc1pmh4p6i5qp91g42sdkn4i1jb9i4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-ttshwWI54xvGJtziotQE8aZKgwMHzh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510983584539-lsuc1pmh4p6i5qp91g42sdkn4i1jb9i4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "510983584539-djh9bdn917oq4ea01he02rj9l1goqbip.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jayrek.movieeboy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
